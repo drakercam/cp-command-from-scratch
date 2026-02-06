@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 
     while ((bytes_read = read(src_fd, src_buffer, MAX_SIZE)) > 0)
     {
-        if (write(dest_fd, src_buffer, bytes_read) == -1)
+        if (write(dest_fd, src_buffer, bytes_read) != bytes_read)
         {
             fprintf(stderr, "An error has occured write to the src_buffer, ERROR: %s\n", strerror(errno));
             exit(EXIT_FAILURE);
